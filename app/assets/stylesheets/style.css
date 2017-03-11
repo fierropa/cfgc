@@ -141,6 +141,10 @@ h1.page-title {
 	margin-top: 0;
 }
 
+.entry-content h2.white-text {
+  color: white;
+} 
+
 header.entry-header {
   display: none;
 }
@@ -1886,6 +1890,11 @@ a.button.full-width {
   font-size: 15px;
 }
 
+.child-impact.upper .paragraphs p {
+  font-size: 20px;
+  line-height: 38px;
+}
+
 h1#five-01-c3 {
   color: #0d3c55;
 }
@@ -1922,6 +1931,10 @@ p.mission {
   padding-bottom: 4.2rem;
   position: relative;
   text-align: center;
+}
+
+section#about-cta {
+  background-image:url(https://107.170.230.125/wp-content/uploads/2017/03/partnership.jpg);
 }
 
 .services-header h4 {

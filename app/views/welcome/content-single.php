@@ -6,7 +6,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-single-page' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-single-page' ); ?> data-template="content-single">
   <header class="entry-header single-header">
     <?php the_title( '<h1 itemprop="headline" class="dark-text entry-title single-title">', '</h1>' ); ?>
     <div class="colored-line"></div>
@@ -24,7 +24,7 @@
   </header><!-- .entry-header -->
 
   <div itemprop="text" class="entry-content">
-    <div class="festured-img text-center">
+    <div class="featured-img text-center">
       <?php if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it. ?>
           <?php
             $image_id = get_post_thumbnail_id();
@@ -38,7 +38,7 @@
       <?php } else { ?>
           <picture itemscope itemprop="image">
             <source media="(max-width: 760px)" srcset="<?php echo llorix_one_lite_get_file( '/images/no-thumbnail-mobile.jpg' );?> ">
-            <img src="<?php echo llorix_one_lite_get_file( '/images/no-thumbnail.jpg' ); ?>" alt="<?php the_title_attribute(); ?>">
+            <img src="<?php echo llorix_one_lite_get_file( '/images/no-thumbnail.png' ); ?>" alt="<?php the_title_attribute(); ?>">
           </picture>
       <?php } ?>
     </div>
@@ -47,6 +47,9 @@
       
       <h3 class="subtitle">
         <?php the_meta(); ?>
+        <a href="<?php echo get_post_meta($post->ID, 'website', true); ?>" target="_blank">
+          <?php echo get_post_meta($post->ID, 'website', true); ?>
+        </a>
       </h3>
       
       <?php the_content(); ?>

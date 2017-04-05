@@ -45,9 +45,6 @@
 
 ?>
 
-<!-- To edit banner jumbotron image use customizer -->
-
-
 <div role="main" id="content" class="content-wrap testimonials">
   
   <div class="container">
@@ -71,42 +68,32 @@
     
 
     <div id="primary" class="content-area col-md-12 testimonials-wrap">
-      <main <?php if ( $q->have_posts() ) { echo 'itemscope itemtype="http://schema.org/Blog"';} ?> id="main" class="site-main testimonials-wrap" role="main" data-template="home">
+      <main <?php if ( $q->have_posts() ) { echo 'itemscope itemtype="http://schema.org/Blog"';} ?> id="main" class="site-main testimonials-wrap" role="main">
 
-
-        
         <?php if ( $q->have_posts() ) : ?>
-  
             <?php /* Start the Loop */ ?>
-            
-            
-            
                 <?php while ( $q->have_posts() ) : $q->the_post(); ?>
 
-                                <?php
-
-                                /**
-                                 * Include the Post-Format-specific template for the content.
-                                 * If you want to override this in a child theme, then include a file
-                                 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                                 */
-                                get_template_part( 'content', get_post_format() ); ?>
+                     <?php
+                                  
+                      /**
+                      * Include the Post-Format-specific template for the content.
+                      * If you want to override this in a child theme, then include a file
+                      * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+                      */
+                     get_template_part( 'content', get_post_format() ); ?>
 
                 <?php endwhile; ?>
 
                 <?php the_posts_navigation(); ?>
 
-                                <?php else : ?>
+        <?php else : ?>
+            <?php get_template_part( 'content', 'none' ); ?>
+        <?php endif; ?>
 
-                                        <?php get_template_part( 'content', 'none' ); ?>
-
-                                <?php endif; ?>
-
-                        </main><!-- #main -->
-                </div><!-- #primary -->
-
-
-        </div>
+      </main><!-- #main -->
+    </div><!-- #primary -->
+  </div>
 </div><!-- .content-wrap -->
 
 <?php get_footer(); ?>

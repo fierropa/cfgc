@@ -76,17 +76,11 @@
             <aside id="nav_menu-3" class="widget widget_nav_menu">
               <div class="menu-social-links-menu-container">
                 <ul id="menu-social-links-menu" class="menu">
-                  <li id="menu-item-137" class="side-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-137">
-                    <a title="YouTube" target="_blank" href="http://youtube.com"><i class="fa fa-youtube-play fa-3x"></i></a>
-                  </li>
                   <li id="menu-item-141" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-141">
                     <a href="http://facebook.com/communityfamilyguidancecenter"><i class="fa fa-facebook-square fa-3x"></i></a>
                   </li>
                   <li id="menu-item-142" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-142">
                     <a href="http://twitter.com/cfgcenter"><i class="fa fa-twitter fa-3x"></i></a>
-                  </li>
-                  <li id="menu-item-139" class="side-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-139">
-                    <a title="Instagram" target="_blank" href="http://instagr.am"><i class="fa fa-instagram fa-3x"></i></a>
                   </li>
                 </ul>
               </div>
@@ -95,7 +89,7 @@
               <div class="textwidget">
                 <div class="career-sc">
                   <span id="education-link">
-                    <a href="https://107.170.230.125/careers" class="button btn-careers">
+                    <a href="/about/employment/" class="button btn-careers">
                       <div class="icon-label">
                         <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
                       </div>

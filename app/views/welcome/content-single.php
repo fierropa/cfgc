@@ -35,11 +35,6 @@
             <source media="(max-width: 760px)" srcset="<?php echo esc_url( $image_url_mobile[0] ); ?>">
             <img src="<?php echo esc_url( $image_url_big[0] ); ?>" alt="<?php the_title_attribute(); ?>">
           </picture>
-      <?php } else { ?>
-          <picture itemscope itemprop="image">
-            <source media="(max-width: 760px)" srcset="<?php echo llorix_one_lite_get_file( '/images/no-thumbnail-mobile.jpg' );?> ">
-            <img src="<?php echo llorix_one_lite_get_file( '/images/no-thumbnail.png' ); ?>" alt="<?php the_title_attribute(); ?>">
-          </picture>
       <?php } ?>
     </div>
     

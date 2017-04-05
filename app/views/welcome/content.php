@@ -6,10 +6,13 @@
  */
 ?>
 
-<article itemscope itemprop="blogPosts" itemtype="http://schema.org/BlogPosting" itemtype="http://schema.org/BlogPosting" <?php post_class( 'border-bottom-hover testimonials-box' ); ?> title="<?php printf( esc_html__( 'Blog post: %s', 'llorix-one-lite' ), get_the_title() )?>">
+<article itemscope itemprop="blogPosts" itemtype="http://schema.org/BlogPosting" itemtype="http://schema.org/BlogPosting" 
+         <?php post_class( 'border-bottom-hover testimonials-box' ); ?> 
+         title="<?php printf( esc_html__( 'Blog post: %s', 'llorix-one-lite' ), get_the_title() )?>"
+         data-template="content">
   
   <div class="feedback">
-
+    
     <div class="pic-container">
         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
            <div class="pic-container-inner">
@@ -19,8 +22,6 @@
     </div>
 
     <?php llorix_one_lite_before_entry_meta_content_trigger(); ?>
-
-
 
     <div itemprop="description" class="feedback-text-wrap entry-summary">
         <?php 

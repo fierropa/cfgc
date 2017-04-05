@@ -10,7 +10,7 @@
     <div class="col-xs-12">
       <div class=" grand-card">
         <div class='card-left'>
-          <img src='https://107.170.230.125/wp-content/uploads/2017/03/Steve-Vicencia.jpg'>
+          <img src='https://cfgcenter.com/wp-content/uploads/2017/03/Steve-Vicencia.jpg'>
         </div>
         <div class='card-right'>
           <h2>Steve Vicencia </h2>
@@ -44,7 +44,10 @@
           <div class="colored-line"></div>
           <h4 class="card-subheading">President-Elect & Treasurer</h4>
           <div class='card-bottom-position'>
-            <p>VP/Branch Manager First Choice Bank</p>
+            <p>
+              VP/Branch Manager<br>
+              First Choice Bank
+            </p>
           </div>
         </div>
       </div>
@@ -58,7 +61,10 @@
           <div class="colored-line"></div>
           <h4 class="card-subheading">Secretary</h4>
           <div class='card-bottom-position'>
-            <p>ABCUSD Board Member</p>
+            <p>
+              Board Member<br>
+              ABC Unified School District
+            </p>
           </div>
         </div>
       </div>
@@ -225,7 +231,7 @@
             <div class='card-bottom-position'>
               <p>
                 Executive Director<br>
-                Cerritos Chamber
+                Cerritos Chamber of Commerce
               </p>
             </div>
             
@@ -302,8 +308,7 @@
             <h4 class="card-subheading">Executive Director</h4>
             <div class='card-bottom-position'>
               <p>
-                Office: 562-924-5526  ext. 223<br>
-                Mobile: 714-334-3501
+                562-924-5526  ext. 223<br>
               </p>
             </div>
           </div>
@@ -313,13 +318,12 @@
       <div class="card-outer col-xs-12 col-sm-6">
         <div class="card">
           <div class="card-container card-bottom">
-            <h2> Celeste Rix </h2>
+            <h2>Celeste Rix, MSW, LCSW</h2>
             <div class="colored-line"></div>
             <h4 class="card-subheading">Chief of Clinical Services</h4>
             <div class='card-bottom-position'>
               <p>
-                Office: 562-924-5526  ext. 249<br>
-                Mobile: 714-319-5824
+                562-924-5526  ext. 249<br>
               </p>
             </div>
           </div>

@@ -1,12 +1,15 @@
 <?php
 /**
- * The template used for displaying page content in page.php
+ * The template used for displaying page content in template-careers.php
  *
  * @package llorix-one-lite
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-template="content-page">
+
+
+
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-template="content-careers">
 
 	<?php
 		$page_title = get_the_title();
@@ -20,8 +23,8 @@
 	<div class="entry-content content-page <?php if ( empty( $page_title ) ) {  echo 'llorix-one-lite-top-margin-5px'; } ?>" itemprop="text">
     
     
-    
 		<?php the_content(); ?>
+    
     
     
     

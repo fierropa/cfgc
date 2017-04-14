@@ -249,7 +249,8 @@ a.button {
   background-image: url(../../themes/llorix-one-lite/images/tr-btn.png);
   background-repeat: repeat-x;
   background-size: contain;
-  background-color: #3d6276;
+  /*background-color: #3d6276;*/
+  background-color: #0D3C55;
   border: 1px solid transparent;
   border-radius: 0.25em;
   color: rgba(255, 255, 255, 0.86);
@@ -278,7 +279,7 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-  background-color: #0d3c55;
+  background-color: #3d6276;
   color: white;
 }
 
@@ -675,8 +676,8 @@ a.learn {
 }
 
 .newsletter-control-btn {
-  float: left;
-  display: inline;
+/*  float: left;
+  display: inline;*/
   margin-left: 0px;
 }
 
@@ -694,7 +695,7 @@ a.learn {
   color: #424242;
   font-size: 1em;
   height: 60px;
-  margin-left: 20px;
+/*  margin-left: 20px;*/
   padding: 5px 8px 5px 8px;
   text-decoration: none;
   width: 100%;
@@ -729,9 +730,11 @@ a.learn {
 
 
 @media (min-width: 768px) {
-  .newsletter-control-btn .btn-signup {
-    margin-left: -20px;
+  
+  .newsletter-control-btn {
+    text-align: right;
   }
+  
 }
 
 
@@ -3378,6 +3381,7 @@ div.pirate_forms_thankyou_wrap p {
   }
   
   fieldset {
+    margin-top: 20px;
     padding: 2em 0em;
   }
   
@@ -3390,6 +3394,10 @@ div.pirate_forms_thankyou_wrap p {
     left: 0px;
     top: -2.8%;
     width: 100%;
+  }
+  
+  #sidebar-secondary {
+    padding: 0px 60px;
   }
   
 }

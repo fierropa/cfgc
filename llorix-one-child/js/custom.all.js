@@ -582,9 +582,9 @@ $( document).ready( function() {
 				},
 				success: function(response) {
 					if ( true === response.success ) {
-						alert( 'This was a success' );
+						alert( 'this was a success' );
 					} else {
-						alert( 'There was a problem.' );
+						alert( 'You Suck' );
 					}
 				}
 			});

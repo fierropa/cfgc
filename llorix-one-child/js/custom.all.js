@@ -565,7 +565,7 @@ function fixed_responsive_bg_body() {
 }
 
 
-$( document).ready( function() {
+jQuery(document).ready( function() {
     // DOM IDs checked
 		var userSubmitButton = document.getElementById( 'user-submit-button' );
 

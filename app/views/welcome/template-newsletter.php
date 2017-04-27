@@ -1,4 +1,7 @@
 <?php
+
+  require("lib/utils.php");
+  require("lib/nusoap.php");
 /**
  * Template name: Newsletter
  *
@@ -30,37 +33,37 @@
             <form method="POST" name="subscribe_form" onsubmit="return validate_form()" onload="setupPage('email');" action="https://sna.etapestry.com/prod/HostedOnlineDonorRegSave.jsp">
               <!-- some inputs here ... -->
               <?php wp_nonce_field( 'name_of_my_action', 'subject' ); ?>
-      
-      
+              <?php startEtapestrySession(); ?>
+              
+
+
               <div class="newsletter-control row">
-        
-                <div class="newsletter-control-input col-xs-12 col-sm-6">
+
+                <div class="newsletter-control-input col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-0">
                   <div class="newsletter-control-input-content">
                     <input type="text" name="first_name" id="first-name" class="ng-pristine ng-valid ng-touched" placeholder="First Name">
                   </div>
                 </div>
-        
-                <div class="newsletter-control-input col-xs-12 col-sm-6">
+
+                <div class="newsletter-control-input col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-0">
                   <div class="newsletter-control-input-content">
                     <input type="text" name="last_name" id="last-name" class="ng-pristine ng-valid ng-touched" placeholder="Last Name">
                   </div>
                 </div>
-                
-                <div class="newsletter-control-input col-xs-12 col-sm-">
+
+                <div class="newsletter-control-input col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-0">
                   <div class="newsletter-control-input-content">
                     <input type="text" id="email" name="email" class="ng-pristine ng-valid ng-touched" placeholder="Email Address*">
                   </div>
                 </div>
-                
+
               </div>
-      
-      
-      
+
+
+
               <div class="newsletter-control row">
-        
-                
-        
-                <div class="newsletter-control-btn col-xs-12 col-sm-3">
+
+                <div class="newsletter-control-btn col-xs-offset-4 col-xs-4">
                   <button type="submit" id="user-submit-button" class="btn btn-signup">Sign Up</button>
                 </div>
         

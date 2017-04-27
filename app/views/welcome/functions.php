@@ -45,3 +45,77 @@ if ( get_stylesheet() !== get_template() ) {
         return get_option( 'theme_mods_' . get_template(), $default );
     } );
 }
+
+
+
+public function register_subscriber_content_type() {
+  $post_lbls = array(
+    'name'               => 'Subscribers', 
+    'singular_name'      => 'Subscriber',
+    'add_new'            => 'Add New',
+    'add_new_item'       => 'Add New Subscriber',
+    'edit'               => 'Edit',
+    'edit_item'          => 'Edit Subscriber',
+    'new_item'           => 'New Subscriber',
+    'view'               => 'View',
+    'view_item'          => 'View Subscriber',
+    'search_term'        => 'Search Term',
+    'parent'             => 'Parent',
+    'not_found'          => 'No Subscribers Found',
+    'not_found_in_trash' => 'No Subscribers In Trash'
+  );
+  
+  register_post_type('subscriber', array('labels' => $post_lbls, 'public' => true));
+  
+  $tax_labels = array(
+  		'name'              => _x( 'Subscriptions', 'text-domain' ),
+  		'singular_name'     => _x( 'Subscription', 'text-domain' ),
+  		'search_items'      => __( 'Search Subscriptions', 'text-domain' ),
+  		'all_items'         => __( 'All Subscriptions', 'text-domain' ),
+  		'parent_item'       => __( 'Parent Subscription', 'text-domain' ),
+  		'parent_item_colon' => __( 'Parent Subscription:', 'text-domain' ),
+  		'edit_item'         => __( 'Edit Subscription', 'text-domain' ),
+  		'update_item'       => __( 'Update Subscription', 'text-domain' ),
+  		'add_new_item'      => __( 'Add New Subscription', 'text-domain' ),
+  		'new_item_name'     => __( 'New Subscription Name', 'text-domain' ),
+  		'menu_name'         => __( 'Subscription', 'text-domain' ),
+  	);
+  register_taxonomy( 'subscriptions', 'subscriber', array( 'labels' => $tax_labels, 'rewrite' =>  array('slug' => 'location', 'with_front' => false) ) );
+  
+}
+
+
+add_action( 'init', 'register_subscriber_content_type' );
+
+
+function process_user_generated_post() {
+	if ( ! empty( $_POST[ 'submission' ] ) ) {
+		wp_send_json_error( 'Honeypot Check Failed' );
+	}
+	if ( ! check_ajax_referer( 'user-submitted-question', 'security' ) ) {
+		wp_send_json_error( 'Security Check failed' );
+	}
+	$question_data = array(
+		'post_title' => sprintf( '%s-%s-%s',
+			sanitize_text_field( $_POST[ 'data' ][ 'name' ] ),
+			sanitize_text_field( $_POST[ 'data' ][ 'product' ] ),
+			esc_attr( current_time( 'Y-m-d' ) )
+		),
+		'post_status' => 'draft',
+		'post_type' => 'user_question',
+		'post_content' => sanitize_text_field( $_POST[ 'data' ][ 'question' ] )
+	);
+	$post_id = wp_insert_post( $question_data, true );
+	if ( $post_id ) {
+		wp_set_object_terms(
+			$post_id,
+			sanitize_text_field( $_POST[ 'data' ][ 'product' ] ),
+			'products',
+			true
+		);
+		update_post_meta( $post_id, 'contact_email', sanitize_email( $_POST[ 'data' ][ 'email' ] ) );
+	}
+	wp_send_json_success( $post_id );
+}
+add_action( 'wp_ajax_process_user_generated_post', 'process_user_generated_post' );
+add_action( 'wp_ajax_nopriv_process_user_generated_post', 'process_user_generated_post' );

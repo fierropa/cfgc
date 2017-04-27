@@ -8,7 +8,7 @@
     
     <form method="POST" name="subscribe_form" onsubmit="return validate_form()" onload="setupPage('email');" action="https://sna.etapestry.com/prod/HostedOnlineDonorRegSave.jsp">
       <!-- some inputs here ... -->
-      <?php wp_nonce_field( 'name_of_my_action', 'subject' ); ?>
+      <?php wp_nonce_field(basename(__FILE__, 'user-submitted-question' ); ?>
       
       
       <div class="newsletter-control row">
@@ -42,7 +42,7 @@
         </div>
         
       </div>
-      <input type="text" id="xyq" name="<?php echo apply_filters( 'honeypot_name', 'date-submitted' ); ?> " value="" style="display:none;">      
+      <input type="text" id="xyq" name="<?php echo apply_filters( 'honeypot_name', 'date-submitted' ); ?>" value="" style="display:none;">
       
     </form>
   </div>

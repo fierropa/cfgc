@@ -30,9 +30,9 @@
   
           <div class="newsletter-form-container">
     
-            <form method="POST" name="subscribe_form" onsubmit="return validate_form()" onload="setupPage('email');" action="https://sna.etapestry.com/prod/HostedOnlineDonorRegSave.jsp">
+            <form method="POST" id="subscribe-form" name="subscribe_form">
               <!-- some inputs here ... -->
-              <?php wp_nonce_field( 'name_of_my_action', 'subject' ); ?>
+              <?php wp_nonce_field(basename(__FILE__), 'user-submitted-question' ); ?>
               <?php startEtapestrySession(); ?>
               
 

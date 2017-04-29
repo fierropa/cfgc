@@ -567,24 +567,28 @@ function fixed_responsive_bg_body() {
 
 jQuery(document).ready( function() {
     // DOM IDs checked
-		var userSubmitButton = document.getElementById( 'user-submit-button' );
+		var userSubmitButton = document.getElementById('user-submit-button');
+		var subscriberForm   = document.getElementById('subscribe-form-container');
+    
 
 		var adminAjaxRequest = function( formData, action ) {
-			$.ajax({
+			jQuery.ajax({
 				type: 'POST',
 				dataType: 'json',
 				url: screenReaderText.adminAjax,
 				data: {
 					action: action,
 					data: formData,
-					submission: document.getElementById( 'xyq').value,
+					submission: document.getElementById('xyq').value,
 					security: screenReaderText.security
 				},
 				success: function(response) {
 					if ( true === response.success ) {
-						alert( 'this was a success' );
+            jQuery(subscriberForm).hide();
+            jQuery("#u-subscribed").show();
 					} else {
-						alert( 'You Suck' );
+						alert( 'There was a problem subcribing you. Please try again.' );
+            // Don't reload form. 
 					}
 				}
 			});
@@ -598,6 +602,6 @@ jQuery(document).ready( function() {
 				'last' : document.getElementById( 'last-name').value,
 				'email' : document.getElementById( 'email').value
 			};
-			adminAjaxRequest( formData, 'process_user_generated_post' );
+			adminAjaxRequest( formData, 'process_subscription_request' );
 		} );
 	});

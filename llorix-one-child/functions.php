@@ -28,6 +28,15 @@ function child_enqueue_styles() {
     wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ) );
 }
 
+function newsletter_form_add_scripts() {
+    wp_register_script( 'jquery-validate-script', get_stylesheet_directory_uri() . '/jquery.validate.min.js' ,array( 'jquery'));
+    wp_enqueue_script( 'jquery-validate-script' );
+
+    wp_register_script( 'newsletter-script', get_stylesheet_directory_uri() . '/newsletter.js' ,array( 'jquery','jquery-validate-script'));
+    wp_enqueue_script( 'newsletter-script' );
+}
+
+
 
 //add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 //function theme_enqueue_styles() {
@@ -46,75 +55,67 @@ if ( get_stylesheet() !== get_template() ) {
     } );
 }
 
-public function register_subscriber_content_type() {
+function register_subscription_request_content_type() {
   $post_lbls = array(
-    'name'               => 'Subscribers', 
-    'singular_name'      => 'Subscriber',
+    'name'               => 'Subscriptions', 
+    'singular_name'      => 'Subscription',
     'add_new'            => 'Add New',
-    'add_new_item'       => 'Add New Subscriber',
+    'add_new_item'       => 'Add New Subscription',
     'edit'               => 'Edit',
-    'edit_item'          => 'Edit Subscriber',
-    'new_item'           => 'New Subscriber',
+    'edit_item'          => 'Edit Subscription Request',
+    'new_item'           => 'New Subscription Request',
     'view'               => 'View',
-    'view_item'          => 'View Subscriber',
-    'search_term'        => 'Search Term',
-    'parent'             => 'Parent',
-    'not_found'          => 'No Subscribers Found',
-    'not_found_in_trash' => 'No Subscribers In Trash'
+    'view_item'          => 'View Subscription',
+    'search_term'        => 'Search Subscription Requests',
+    'parent'             => 'Parent Subscription',
+    'not_found'          => 'No Subscriptions Found',
+    'not_found_in_trash' => 'No Subscription Requests In Trash'
   );
   
-  register_post_type('subscriber', array('labels' => $post_lbls, 'public' => true));
-  
-  $tax_labels = array(
-  		'name'              => _x( 'Subscriptions', 'text-domain' ),
-  		'singular_name'     => _x( 'Subscription', 'text-domain' ),
-  		'search_items'      => __( 'Search Subscriptions', 'text-domain' ),
-  		'all_items'         => __( 'All Subscriptions', 'text-domain' ),
-  		'parent_item'       => __( 'Parent Subscription', 'text-domain' ),
-  		'parent_item_colon' => __( 'Parent Subscription:', 'text-domain' ),
-  		'edit_item'         => __( 'Edit Subscription', 'text-domain' ),
-  		'update_item'       => __( 'Update Subscription', 'text-domain' ),
-  		'add_new_item'      => __( 'Add New Subscription', 'text-domain' ),
-  		'new_item_name'     => __( 'New Subscription Name', 'text-domain' ),
-  		'menu_name'         => __( 'Subscription', 'text-domain' ),
-  	);
-  register_taxonomy( 'subscriptions', 'subscriber', array( 'labels' => $tax_labels, 'rewrite' =>  array('slug' => 'location', 'with_front' => false) ) );
+  register_post_type('subscription', array('labels' => $post_lbls, 'public' => true));
   
 }
 
 
-add_action( 'init', 'register_subscriber_content_type' );
 
 
-function process_user_generated_post() {
-	if ( ! empty( $_POST[ 'submission' ] ) ) {
-		wp_send_json_error( 'Honeypot Check Failed' );
-	}
-	if ( ! check_ajax_referer( 'user-submitted-question', 'security' ) ) {
-		wp_send_json_error( 'Security Check failed' );
-	}
-	$question_data = array(
-		'post_title' => sprintf( '%s-%s-%s',
-			sanitize_text_field( $_POST[ 'data' ][ 'name' ] ),
-			sanitize_text_field( $_POST[ 'data' ][ 'product' ] ),
-			esc_attr( current_time( 'Y-m-d' ) )
-		),
-		'post_status' => 'draft',
-		'post_type' => 'user_question',
-		'post_content' => sanitize_text_field( $_POST[ 'data' ][ 'question' ] )
-	);
-	$post_id = wp_insert_post( $question_data, true );
-	if ( $post_id ) {
-		wp_set_object_terms(
-			$post_id,
-			sanitize_text_field( $_POST[ 'data' ][ 'product' ] ),
-			'products',
-			true
-		);
-		update_post_meta( $post_id, 'contact_email', sanitize_email( $_POST[ 'data' ][ 'email' ] ) );
-	}
-	wp_send_json_success( $post_id );
+function process_subscription_request() {
+ 
+  if ( ! empty( $_POST[ 'submission' ] ) ) {
+    wp_send_json_error( 'Honeypot Check Failed' );
+  }
+  if ( ! check_ajax_referer( 'user-submitted-question', 'security' ) ) {
+    wp_send_json_error( 'Security Check failed' );
+  }
+  $subscription_data = array(
+    'post_title' => sprintf( '[%s] New Subscriber - %s %s',
+      esc_attr( current_time( 'Y-m-d' ) ),
+      sanitize_text_field( $_POST[ 'data' ][ 'first' ] ),
+      sanitize_text_field( $_POST[ 'data' ][ 'last' ] )
+    ),
+    'post_status' => 'draft',
+    'post_type' => 'subscription',
+    'post_content' => sprintf( 'A new subscription for the CFGC newsletter has been received. The received subscriber information is as follows:%c[%s %s, %s]',
+      10,
+      sanitize_text_field( $_POST[ 'data' ][ 'first' ] ),
+      sanitize_text_field( $_POST[ 'data' ][ 'last' ] ),
+      sanitize_text_field( $_POST[ 'data' ][ 'email' ] )
+     )
+  );
+  $post_id = wp_insert_post( $subscription_data, true );
+  
+  // echo esc_attr( $post_id );
+
+  if ( $post_id ) {
+    wp_send_json_success( $post_id );
+  }
+
 }
-add_action( 'wp_ajax_process_user_generated_post', 'process_user_generated_post' );
-add_action( 'wp_ajax_nopriv_process_user_generated_post', 'process_user_generated_post' );
+
+
+add_action( 'init', 'register_subscription_request_content_type' );
+
+
+add_action( 'wp_ajax_process_subscription_request', 'process_subscription_request' );
+add_action( 'wp_ajax_nopriv_process_subscription_request', 'process_subscription_request' );
 

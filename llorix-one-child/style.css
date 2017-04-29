@@ -289,6 +289,11 @@ a.button:focus {
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
+.btn:focus, .btn.focus {
+  color: #fff;
+  text-decoration: none;
+}
+
 
 button {
   background-color: #3d6276;
@@ -523,17 +528,36 @@ div#clients .container {
 
 
 
-@media (min-width: 481px) and @media (max-width: 767px) {
-  .no-gutters > 
-  .single-stats:nth-child(3n) h4 {
+
+
+
+
+
+@media (max-width: 992px) {
+
+  .stats .no-gutters > .single-stats:nth-child(3n) h4 {
+    margin-bottom: 30px;
+    padding: 30px 15px;
+  }
+  
+}
+
+@media (max-width: 767px) {
+ 
+  .stats .no-gutters > .single-stats h4 {
     font-size: 4.0rem;
   }
   
-  .stats .no-gutters > 
-  .single-stats:nth-child(3n) h4 {
-    padding-top: 30px;
-    padding-bottom: 30px;
+}
+
+
+@media (min-width: 581px) and (max-width: 699px) {
+  
+  .stats .no-gutters > .single-stats:nth-child(3n) h4 {
+    font-size: 3.0rem;
+    padding: 30px 10px;
   }
+  
 }
 
 /*---------------------------------------

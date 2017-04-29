@@ -63,7 +63,12 @@ if ( isset( $llorix_one_lite_frontpage_content_show ) && $llorix_one_lite_frontp
 //           get_template_part( 'content', 'none' );
 //         endif;
 				?>
-        <div class="single-service border-bottom-hover">
+        
+        <div id="u-subscribed" class="alert alert-success" style="display:none;">
+          <span style="font-weight:bold;">Success!</span> Thank you for your interest in CFGC.
+        </div>
+        
+        <div id="subscribe-form-container" class="single-service border-bottom-hover">
   
           <h3 class="colored-text text-center">
             Subscribe to Our Newsletter

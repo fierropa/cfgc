@@ -566,42 +566,45 @@ function fixed_responsive_bg_body() {
 
 
 jQuery(document).ready( function() {
-    // DOM IDs checked
-		var userSubmitButton = document.getElementById('user-submit-button');
-		var subscriberForm   = document.getElementById('subscribe-form-container');
-    
+  // DOM IDs checked
+	var userSubmitButton = document.getElementById('user-submit-button');
+	var subscriberForm   = document.getElementById('subscribe-form-container');
+  
 
-		var adminAjaxRequest = function( formData, action ) {
-			jQuery.ajax({
-				type: 'POST',
-				dataType: 'json',
-				url: screenReaderText.adminAjax,
-				data: {
-					action: action,
-					data: formData,
-					submission: document.getElementById('xyq').value,
-					security: screenReaderText.security
-				},
-				success: function(response) {
-					if ( true === response.success ) {
-            jQuery(subscriberForm).hide();
-            jQuery("#u-subscribed").show();
-					} else {
-						alert( 'There was a problem subcribing you. Please try again.' );
-            // Don't reload form. 
-					}
+	var adminAjaxRequest = function( formData, action ) {
+		jQuery.ajax({
+			type: 'POST',
+			dataType: 'json',
+			url: screenReaderText.adminAjax,
+			data: {
+				action: action,
+				data: formData,
+				submission: document.getElementById('xyq').value,
+				security: screenReaderText.security
+			},
+			success: function(response) {
+				if ( true === response.success ) {
+          jQuery(subscriberForm).hide();
+          jQuery("#u-subscribed").show();
+				} else {
+					alert( 'There was a problem subcribing you. Please try again.' );
+          // Don't reload form. 
 				}
-			});
-		};
+			}
+		});
+	};
 
-		userSubmitButton.addEventListener( 'click', function(event) {
-			event.preventDefault();
-      // DOM IDs checked
-			var formData = {
-				'first' : document.getElementById( 'first-name').value,
-				'last' : document.getElementById( 'last-name').value,
-				'email' : document.getElementById( 'email').value
-			};
-			adminAjaxRequest( formData, 'process_subscription_request' );
-		} );
-	});
+	jQuery(subscriberForm).on('click', userSubmitButton, function(event) {
+		event.preventDefault();
+    // DOM IDs checked, file updated
+		var formData = {
+			'first' : document.getElementById( 'first-name').value,
+			'last' : document.getElementById( 'last-name').value,
+			'email' : document.getElementById( 'email').value
+		};
+		adminAjaxRequest( formData, 'process_subscription_request' );
+	} );
+  
+});
+
+

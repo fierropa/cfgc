@@ -94,7 +94,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 body {
   color: #313131;
-  font-family: "Cabin", "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+/*  font-family: "Cabin", "Open Sans", "Helvetica Neue", sans-serif;*/
   font-size: 16px;
   font-weight: 400;
   line-height: 28px;
@@ -954,7 +955,7 @@ button.btn-signup:hover {
 }
 
 #employment-openings .cta a {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 
@@ -982,7 +983,7 @@ button.btn-signup:hover {
 
 .pad-bottom-medium h3 {
   font-family: 'Quicksand', sans-serif;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 400;
   line-height: 30px;
   margin-bottom: 20px;
@@ -3262,6 +3263,7 @@ section#about-cta {
 }
 
 .post-9.contact-page > .container {
+  font-family: "Quicksand", "Open Sans", sans-serif;
   padding: 0;
   width: 100%;
 }
@@ -3296,9 +3298,6 @@ a.sidebar-link {
   font-size: 14px;
 }
 
-.career-sc {
-  padding-left: 15px;
-}
 .career-sc span {
   color: white;
 }

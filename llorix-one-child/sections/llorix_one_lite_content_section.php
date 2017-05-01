@@ -119,5 +119,21 @@ if ( isset( $llorix_one_lite_frontpage_content_show ) && $llorix_one_lite_frontp
 			</div>
 		</div>
 	</section>
+  
+  <script type="text/javascript">
+    // jQuery(document).ready(function($) {
+//
+//       $("#subscribe-form").validate({
+//         rules: {
+//           email: {
+//             required: true,
+//             email: true
+//           }
+//         }
+//       });
+//
+//     });
+  </script>
+  
 	<?php
 }// End if().

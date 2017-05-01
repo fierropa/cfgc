@@ -28,13 +28,6 @@ function child_enqueue_styles() {
     wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ) );
 }
 
-function newsletter_form_add_scripts() {
-    wp_register_script( 'jquery-validate-script', get_stylesheet_directory_uri() . '/jquery.validate.min.js' ,array( 'jquery'));
-    wp_enqueue_script( 'jquery-validate-script' );
-
-    wp_register_script( 'newsletter-script', get_stylesheet_directory_uri() . '/newsletter.js' ,array( 'jquery','jquery-validate-script'));
-    wp_enqueue_script( 'newsletter-script' );
-}
 
 
 
@@ -54,6 +47,9 @@ if ( get_stylesheet() !== get_template() ) {
         return get_option( 'theme_mods_' . get_template(), $default );
     } );
 }
+
+
+
 
 function register_subscription_request_content_type() {
   $post_lbls = array(
@@ -113,9 +109,19 @@ function process_subscription_request() {
 }
 
 
+
+
+// function newsletter_form_add_scripts() {
+//     wp_register_script( 'jquery-validate-script', get_stylesheet_directory_uri() . '/jquery.validate.min.js' , array( 'jquery'));
+//     wp_enqueue_script( 'jquery-validate-script' );
+//
+//     // wp_register_script( 'newsletter-script', get_stylesheet_directory_uri() . '/newsletter.js' ,array( 'jquery','jquery-validate-script'));
+// //     wp_enqueue_script( 'newsletter-script' );
+// }
+
+
 add_action( 'init', 'register_subscription_request_content_type' );
-
-
+// add_action( 'wp_enqueue_scripts', 'newsletter_form_add_scripts' );
 add_action( 'wp_ajax_process_subscription_request', 'process_subscription_request' );
 add_action( 'wp_ajax_nopriv_process_subscription_request', 'process_subscription_request' );
 

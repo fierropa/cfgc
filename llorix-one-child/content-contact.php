@@ -69,7 +69,7 @@
                   <br>8320 Iowa Street, #201
                   <br>Downey, CA 90241
                   <br>ph: 562-904-4815
-                  <br><i class="fa fa-map-marker" aria-hidden="true" style="color:#912d25;"></i>&nbsp;<a class="sidebar-link" href="https://goo.gl/maps/ptMNvKrR6cH2">Google Maps</a>
+                  <br><i class="fa fa-map-marker" aria-hidden="true" style="color:#f75448;"></i>&nbsp;<a class="sidebar-link" href="https://goo.gl/maps/ptMNvKrR6cH2">Google Maps</a>
                 </p>
               </div>
             </aside>

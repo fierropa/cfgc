@@ -45,7 +45,7 @@
 
 ?>
 
-<div role="main" id="content" class="content-wrap testimonials">
+<div role="main" id="content" class="content-wrap testimonials" data-template="template-testimonials">
   
   <div class="container">
     

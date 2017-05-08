@@ -72,6 +72,27 @@ function register_subscription_request_content_type() {
   
 }
 
+function register_job_posting_content_type() {
+  $post_lbls = array(
+    'name'               => 'Job Postings', 
+    'singular_name'      => 'Job Posting',
+    'add_new'            => 'Add New',
+    'add_new_item'       => 'Add New Job Posting',
+    'edit'               => 'Edit',
+    'edit_item'          => 'Edit Job Posting',
+    'new_item'           => 'New Job Posting',
+    'view'               => 'View',
+    'view_item'          => 'View Job Posting',
+    'search_term'        => 'Search Job Postings',
+    'parent'             => 'Parent Job Posting',
+    'not_found'          => 'No Job Postings Found',
+    'not_found_in_trash' => 'No Job Postings In Trash'
+  );
+  
+  register_post_type('job_posting', array('labels' => $post_lbls, 'public' => true));
+  flush_rewrite_rules();
+}
+
 
 
 
@@ -111,17 +132,18 @@ function process_subscription_request() {
 
 
 
-// function newsletter_form_add_scripts() {
-//     wp_register_script( 'jquery-validate-script', get_stylesheet_directory_uri() . '/jquery.validate.min.js' , array( 'jquery'));
-//     wp_enqueue_script( 'jquery-validate-script' );
-//
-//     // wp_register_script( 'newsletter-script', get_stylesheet_directory_uri() . '/newsletter.js' ,array( 'jquery','jquery-validate-script'));
-// //     wp_enqueue_script( 'newsletter-script' );
-// }
+function newsletter_form_add_scripts() {
+  wp_register_script( 'jquery-validate-script', get_stylesheet_directory_uri() . '/js/jquery.validate.min.js', array( 'jquery'));
+  wp_enqueue_script( 'jquery-validate-script' );
+
+    // wp_register_script( 'newsletter-script', get_stylesheet_directory_uri() . '/newsletter.js', array( 'jquery','jquery-validate-script'));
+//     wp_enqueue_script( 'newsletter-script' );
+}
 
 
+add_action( 'init', 'register_job_posting_content_type' );
 add_action( 'init', 'register_subscription_request_content_type' );
-// add_action( 'wp_enqueue_scripts', 'newsletter_form_add_scripts' );
+add_action( 'wp_enqueue_scripts', 'newsletter_form_add_scripts' );
 add_action( 'wp_ajax_process_subscription_request', 'process_subscription_request' );
 add_action( 'wp_ajax_nopriv_process_subscription_request', 'process_subscription_request' );
 

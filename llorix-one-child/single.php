@@ -14,15 +14,15 @@
 <!-- /END HOME / HEADER  -->
 
 <div class="content-wrap">
-    <div class="container">
-        <div id="primary" class="content-area col-md-12">
-			<main itemscope itemtype="http://schema.org/WebPageElement" itemprop="mainContentOfPage" id="main" class="site-main" role="main">
+  <div class="container">
+    <div id="primary" class="content-area col-md-12">
+			<main itemscope itemtype="http://schema.org/WebPageElement" itemprop="mainContentOfPage" id="main" class="site-main" role="main" data-template="single">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', 'single' ); ?>
 				
-				<?php the_post_navigation(); ?>
+        <!-- <?php the_post_navigation(); ?> -->
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template

@@ -36,6 +36,7 @@ if ( isset( $llorix_one_lite_frontpage_content_show ) && $llorix_one_lite_frontp
 
 	?>
 
+  
 	<section class="frontpage-content <?php if ( ! empty( $class_to_add ) ) {
 		echo esc_attr( $class_to_add );
 	} ?> " <?php if ( ! empty( $llorix_one_frontpage_featured ) ) {
@@ -84,7 +85,7 @@ if ( isset( $llorix_one_lite_frontpage_content_show ) && $llorix_one_lite_frontp
 
                 <div class="newsletter-control-input col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-0">
                   <div class="newsletter-control-input-content">
-                    <input type="text" name="first_name" id="first-name" class="ng-pristine ng-valid ng-touched" placeholder="First Name">
+                    <input type="text" name="first_name" id="first-name" class="ng-pristine ng-valid ng-touched" placeholder="First Name" required>
                   </div>
                 </div>
 
@@ -96,7 +97,7 @@ if ( isset( $llorix_one_lite_frontpage_content_show ) && $llorix_one_lite_frontp
 
                 <div class="newsletter-control-input col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-0">
                   <div class="newsletter-control-input-content">
-                    <input type="text" id="email" name="email" class="ng-pristine ng-valid ng-touched" placeholder="Email Address*">
+                    <input type="email" id="email" name="email" placeholder="Email Address*" required>
                   </div>
                 </div>
 
@@ -111,7 +112,7 @@ if ( isset( $llorix_one_lite_frontpage_content_show ) && $llorix_one_lite_frontp
                 </div>
         
               </div>
-              <input type="text" id="xyq" name="<?php echo apply_filters( 'honeypot_name', 'date-submitted' ); ?>" value="" style="display:none;">      
+              <input type="text" id="xyq" name="<?php echo apply_filters( 'honeypot_name', 'date-submitted' ); ?>" value="" style="display:none;">
       
             </form>
           </div>
@@ -121,19 +122,9 @@ if ( isset( $llorix_one_lite_frontpage_content_show ) && $llorix_one_lite_frontp
 	</section>
   
   <script type="text/javascript">
-    // jQuery(document).ready(function($) {
-//
-//       $("#subscribe-form").validate({
-//         rules: {
-//           email: {
-//             required: true,
-//             email: true
-//           }
-//         }
-//       });
-//
-//     });
-  </script>
+
+    </script>
+  
   
 	<?php
 }// End if().

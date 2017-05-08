@@ -565,7 +565,7 @@ function fixed_responsive_bg_body() {
 }
 
 
-jQuery(document).ready( function() {
+jQuery(document).ready( function($) {
   // DOM IDs checked
 	var userSubmitButton = document.getElementById('user-submit-button');
 	var subscriberForm   = document.getElementById('subscribe-form-container');
@@ -593,16 +593,28 @@ jQuery(document).ready( function() {
 			}
 		});
 	};
+  
+  // just for the demos, avoids form submit
+  jQuery.validator.setDefaults({
+    debug: true,
+    success: "valid"
+  });
+  var form = jQuery( "#subscribe-form" );
+  form.validate();
 
-	jQuery(subscriberForm).on('click', userSubmitButton, function(event) {
+
+	jQuery(userSubmitButton).on('click', function(event) {
 		event.preventDefault();
+    console.log("Valid: " + form.valid() );
     // DOM IDs checked, file updated
 		var formData = {
 			'first' : document.getElementById( 'first-name').value,
 			'last' : document.getElementById( 'last-name').value,
 			'email' : document.getElementById( 'email').value
 		};
-		adminAjaxRequest( formData, 'process_subscription_request' );
+    if (form.valid()) {
+  		adminAjaxRequest( formData, 'process_subscription_request' );
+    }
 	} );
   
 });

@@ -87,6 +87,14 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 -----------------------------------------*/
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
 
+@font-face {
+font-family: 'BigNoodleTitling';
+font-style: normal;
+font-weight: normal;
+src: local('BigNoodleTitling'), url('fonts/bignoodle-titling/big_noodle_titling.woff') format('woff');
+}
+  
+
 
 /*---------------------------------------
    1.0 GENERAL STYLES
@@ -360,7 +368,11 @@ section.resource-visual {
 -----------------------------------------*/
 
 
-
+label.error {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.9em;
+  color: crimson;
+}
 
 
 
@@ -2127,6 +2139,7 @@ body.page-id-1076 header.entry-header {
 
 body.page-id-1076 header.entry-header h1 {
   text-align: center;
+  margin-top: 1em;
 }
 
 body.page-id-1076 .visual {
@@ -2922,6 +2935,15 @@ a.button.full-width {
   letter-spacing: 1.1px;
 }
 .hawaiian-gardens {
+  font-size: 22px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 1.4px;
+}
+.huntington-park {
+  font-family: 'BigNoodleTitling', sans-serif;
   font-size: 22px;
   font-style: normal;
   font-variant: normal;

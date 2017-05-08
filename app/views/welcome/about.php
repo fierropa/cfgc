@@ -106,7 +106,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Bitter|Nunito+Sans|Unica+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300|Overlock+SC" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Italiana|Cinzel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Italiana|Cinzel|Amarante" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Poiret+One|Comfortaa" rel="stylesheet">
 
 
@@ -148,8 +148,14 @@
           <div class="city col-sm-6 col-xs-12 downey">
             Downey
           </div>
+          <div class="city col-sm-6 col-xs-12 huntington-park">
+            Huntington Park
+          </div>
           <div class="city col-sm-6 col-xs-12 lakewood">
             Lakewood
+          </div>
+          <div class="city col-sm-6 col-xs-12 la-mirada">
+            La Mirada
           </div>
           <div class="city col-sm-6 col-xs-12 maywood">
             Maywood

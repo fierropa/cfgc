@@ -91,7 +91,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 font-family: 'BigNoodleTitling';
 font-style: normal;
 font-weight: normal;
-src: local('BigNoodleTitling'), url('fonts/bignoodle-titling/big_noodle_titling.woff') format('woff');
+src: local('BigNoodleTitling'), url('fonts/big_noodle_titling.woff') format('woff');
 }
   
 
@@ -2950,6 +2950,16 @@ a.button.full-width {
   font-weight: 400;
   line-height: 23px;
   letter-spacing: 1.4px;
+}
+.la-mirada {
+  font-family: 'Amarante', sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 .lakewood {
   font-family: 'Nunito Sans', sans-serif;

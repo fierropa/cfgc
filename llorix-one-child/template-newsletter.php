@@ -21,7 +21,7 @@
   <div class="container">
 
     <div id="primary" class="content-area col-md-12 testimonials-wrap">
-      <main id="main" class="site-main testimonials-wrap" role="main">
+      <main id="main" class="site-main testimonials-wrap" role="main" data-template="template-newsletter">
         <div class="single-service border-bottom-hover">
   
           <h3 class="colored-text text-center">
@@ -64,11 +64,11 @@
               <div class="newsletter-control row">
 
                 <div class="newsletter-control-btn col-xs-offset-4 col-xs-4">
-                  <button type="submit" id="user-submit-button" class="btn btn-signup">Sign Up</button>
+                  <button type="submit" id="user-submit-button" class="btn btn-signup btn-cyan button">Sign Up</button>
                 </div>
         
               </div>
-              <input type="text" id="xyq" name="<?php echo apply_filters( 'honeypot_name', 'date-submitted' ); ?>" value="" style="display:none;">      
+              <input type="text" id="xyq" name="<?php echo apply_filters( 'honeypot_name', 'date-submitted' ); ?>" value="" style="display:none;">
       
             </form>
           </div>

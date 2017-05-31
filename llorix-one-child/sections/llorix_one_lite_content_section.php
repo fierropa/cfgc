@@ -107,8 +107,10 @@ if ( isset( $llorix_one_lite_frontpage_content_show ) && $llorix_one_lite_frontp
 
               <div class="newsletter-control row">
 
-                <div class="newsletter-control-btn col-xs-offset-4 col-xs-4">
-                  <button type="submit" id="user-submit-button" class="btn btn-signup">Sign Up</button>
+                <div class="newsletter-control-btn col-sm-offset-4 col-sm-4 col-xs-12">
+                  <button type="submit" id="user-submit-button" class="btn btn-cyan btn-signup button">
+                    Sign Up
+                  </button>
                 </div>
         
               </div>

@@ -233,7 +233,9 @@ strong,
 .sea-blue-text {
 	color: #1395ba;
 } /* altered */
-
+.white-text {
+ color: #fff; 
+}
 .yellow-text {
   color: rgba(220, 220, 18, 0.83);
 }
@@ -258,7 +260,6 @@ a.button {
   background-image: url(../../themes/llorix-one-lite/images/tr-btn.png);
   background-repeat: repeat-x;
   background-size: contain;
-  /*background-color: #3d6276;*/
   background-color: #0D3C55;
   border: 1px solid transparent;
   border-radius: 0.25em;
@@ -305,10 +306,25 @@ a.button:focus {
 
 
 button {
-  background-color: #3d6276;
+  background-image: url(../../themes/llorix-one-lite/images/tr-btn.png);
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-color: #0D3C55;
+  border: 1px solid transparent;
+  border-radius: 0.25em;
+  cursor: pointer;
   color: rgba(255, 255, 255, 0.86);
+  font-size: 1em;
+  font-weight: 500;
   text-transform: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
+
 
 a.button.btn-coral, 
 button.coral {
@@ -327,6 +343,25 @@ a.button.btn-green:hover,
 button.green:hover {
   background-color: #3c550d;
 }
+
+a.button.btn-gold, 
+button.gold {
+  background-color: #9d7220;
+}
+a.button.btn-gold:hover, 
+button.gold:hover {
+  background-color: #8d661c;
+}
+
+a.button.btn-red, 
+button.red {
+  background-color: #983108;
+}
+a.button.btn-red:hover, 
+button.red:hover {
+  background-color: #7b2705;
+}
+
 
 a.btn-default.raised {
   animation: raised 0.45s ease;
@@ -751,6 +786,11 @@ a.learn {
   padding: 1em 0em;
 }
 
+.newsletter-control-btn button {
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 1.2px;
+}
+
 .frontpage-content .single-service {
   text-align: center;
 }
@@ -796,8 +836,12 @@ a.learn {
 @media (max-width: 767px) {
   
   .newsletter-control-input-content input {
+    font-size: 0.8em;
+    height: 50px;
     margin-left: 0px;
+    padding: 4px 5px 4px 5px;
   }
+  
 
   .frontpage-content {
     background-color: #F7F8FA;
@@ -1509,7 +1553,7 @@ a.btn-orange:hover {
 
 a.btn-white {
   background-color: white;
-  border: 2px solid rgba(157, 94, 32, 0.1);
+  border: 2px solid #8a6d3b;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 
 }
 a.btn-white .label {
@@ -1518,6 +1562,10 @@ a.btn-white .label {
 a.btn-white:hover {
   border: 2px solid rgba(121, 72, 26, 0.2);
   background-color: #fffffe;
+}
+
+.entry-content span.white-text {
+ color: #fff; 
 }
 
 .education-link-wrapper {
@@ -1547,9 +1595,6 @@ a.btn-white:hover {
   margin-top: 2em;
 }
 
-h5#outpatient-services {
-  font-family: "Quicksand", sans-serif;
-}
 
 h2#non-os {
   font-size: 2.4em;
@@ -3812,13 +3857,6 @@ div.pirate_forms_thankyou_wrap p {
 -----------------------------------------*/
 
 @media (max-width: 767px) {
-
-  .newsletter-control-input-content input {
-    font-size: 0.8em;
-    height: 32px;
-    padding: 2px 5px 2px 5px;
-  }
-
 }
 
 @media (max-width: 680px) {
